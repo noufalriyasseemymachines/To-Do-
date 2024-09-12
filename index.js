@@ -5,7 +5,6 @@ const year = today.getFullYear();
 const month = String(today.getMonth() + 1).padStart(2, '0'); 
 const day = String(today.getDate()).padStart(2, '0');
 const formattedDate = `${year}-${month}-${day}`;
-
 const alertMessage=document.getElementById("alert-message");
 
 const addTask=() => {
@@ -14,7 +13,6 @@ const addTask=() => {
     text = text.replace(/[^a-zA-Z ]/g, '');
     const date=document.getElementById("task-date");
     const dateValue=date.value
-
 
     if(text && dateValue){
         if(dateValue >= formattedDate){
@@ -44,10 +42,8 @@ const addTask=() => {
 const updateTasksList=(displayTask)=>{
     const taskList = document.getElementById("task-list");
     taskList.innerHTML = ''
-
     displayTask.forEach((task,index)=>{
         const listItem=document.createElement("li");
-
         listItem.innerHTML = `
         <div class="taskItem ${task.completed ? 'completed': ''}">
             <div class="task">
@@ -62,12 +58,9 @@ const updateTasksList=(displayTask)=>{
             </div>
         </div>
         `;
-
         listItem.onchange = () => toggleTaskComplete(index);
         taskList.appendChild(listItem);
-
     });
-
 };
 
 const toggleTaskComplete = (index)=>{
